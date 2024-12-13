@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Cabecera from './Componentes/Header'
 import MainGeneral from './Componentes/Main'
 import FormInput from './Componentes/MainVideo'
+import Footer from './Componentes/Footer'
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -17,19 +18,20 @@ function App() {
  
 
   return (
-    <Router>
-    <Background>
-      <ResetGlobal/>
-      <Cabecera/>
-      <Routes>
-        <Route path='/' element={<MainGeneral/>}/>
-        <Route path='/form' element= {<FormInput/>}/>
-      </Routes>
-      <Editar/>
-      
-    </Background>
-    </Router>
-  )
+   
+      <Router>
+       <Background>
+        <ResetGlobal/>
+        <Cabecera/>
+        <Routes>
+          <Route path='/' element={<MainGeneral/>}/>
+          <Route path='/form' element= {<FormInput/>}/>
+        </Routes>
+        <Footer/>
+        </Background>
+      </Router>
+    
+  )  
 }
 
 export default App

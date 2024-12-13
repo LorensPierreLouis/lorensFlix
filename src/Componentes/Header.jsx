@@ -32,22 +32,22 @@ const Header= styled.header`
 `
 
 const Button= styled.button`
-      background-color: #262626;
-      border: solid 1.5px #cac2c2 ;
-      padding: 5px 10px;
-      border-radius: 10px;
-      width: 150px;
-      font-size: 0.8rem;
-      box-shadow: ${props=> props.$activo ?"-1px -1px 5px 3px  rgba(34, 113, 209, 0.7)" : "none"};
-      border-color:  ${props=> props.$activo ?"#2271D1" : "#cac2c2 "};
-      color:  ${props=> props.$activo ? "#2271D1" : "#ffff"};
+    background-color: #262626;
+    border: solid 1.5px #cac2c2 ;
+    padding: 5px 10px;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 0.8rem;
+    box-shadow: ${props=> props.$activo ?"-1px -1px 5px 3px  rgba(34, 113, 209, 0.7)" : "none"};
+    border-color:  ${props=> props.$activo ?"#2271D1" : "#cac2c2 "};
+    color:  ${props=> props.$activo ? "#2271D1" : "#ffff"};
 
 
-    :hover{
-        color: #2271D1;
-        border-color:#2271D1;
-        
-    }
+  :hover{
+      color: #2271D1;
+      border-color:#2271D1;
+      
+  }
 
    
 
