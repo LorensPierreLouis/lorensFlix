@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import InputLabel from "./ParteFormulario"
 
 const Formulario= styled.form`
   padding:30px 50px;
@@ -12,27 +13,35 @@ const Formulario= styled.form`
     gap:10px;
   }
    
-  h1,h2,p,label{
+  h1,h2,p{
     color: #FFFF;
+    text-align: center;
+    font-family: Roboto; 
+    text-decoration-skip-ink: none;
   }
+
+  h1{
+    font-size:1.8rem;
+    font-weight:600
+  }
+  p{
+    font-size:1rem;
+    font-weight:300
+  }
+
    
   h2{
     border-top: solid 1px ;
     border-bottom: solid 1px ;
-    padding: 15px
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;
+
   }
 
-  h1,p{
-    text-align: center;
-  }
 
-  div,section{
-    display: flex;
-    flex-direction:column;
-    gap: 5px;
-  }
-
-  input, select{
+  select{
     max-width: 50%;
     line-height: 2rem;
     color:#FFFF;
@@ -46,9 +55,6 @@ const Formulario= styled.form`
   color: #a93630;
   }
   
-
-
-
   footer{
     display: flex;
     gap:20px;
@@ -68,11 +74,50 @@ const Formulario= styled.form`
         box-shadow: -1px -1px 5px 3px  rgba(34, 113, 209, 0.7); 
     }
 
-
- 
-    
-
 `
+/*descripcion*/
+const Div= styled.div`
+  margin: 7px 0;
+  label,input{
+    color:#FFFF;
+    display: block;
+    font-family: Source Sans Pro;
+    font-size:1rem ;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+  }
+
+
+  input{
+  font-size: 0.7rem;
+  border: none;
+  background-color:rgba(25, 25, 25, 1);
+  color: #FFFF;
+  outline:none;
+  text-align: start;
+  width: 35%;
+  padding: 10px;
+  height: 200px;
+  }
+
+  input::placeholder{
+  text-align: start;
+  }
+  input:focus{
+    color:rgba(229, 57, 53, 1);
+    border: solid 1px rgba(229, 57, 53, 1);
+  }
+`
+
+const Descripcion= ()=>{
+  return (
+    <Div>
+    <label htmlFor="">Descripción</label>
+    <input type="text" placeholder="Ingrese la descripción del video" />
+    </Div>
+  )
+}
 
 const FormInput= ()=>{
    return (
@@ -82,37 +127,12 @@ const FormInput= ()=>{
         <p>COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO</p>
       </header> 
       <h2>Crear Tarjeta</h2>
-      <section>
-         <div>
-            <label htmlFor="titulo">Titulo</label>
-            <input type="text"  placeholder="ingrese el titulo"/>
-        </div> <br />
-        <div>
-            <label htmlFor="categoria">Categoria</label>
-            <select>
-            <option value="seleccion"> Seleccionar</option>
-            </select>
-        </div> <br />
-      </section>
-      
-      <section>
-         <div>
-            <label htmlFor="imagen">Imagen</label>
-            <input type="text"  placeholder="el enlace es obligatorio"/>
-        </div> <br />
-        <div>
-        <label htmlFor="video">Video</label>
-        <input  type="text"  placeholder="ingrese el enlace del video"/>
-        </div> <br />
-      </section>
-       
-       <section>
-        <label htmlFor="descriipcion">Descripcion del video</label>
-       <input type="text"  placeholder="¿De que se trata el video?" />
+      <InputLabel titulo="Titulo" placeholder="Ingrese el título"/>
+      <InputLabel titulo="Imagen" placeholder="Ingrese la imagen"/>
+      <InputLabel titulo="Video" placeholder="Ingrese el video"/>
 
-       </section>  <br />
-      
-       <footer>
+      <Descripcion/>
+      <footer>
         <button type="submit">Guardar</button>
         <button type="reset">Limpiar</button>
       </footer>

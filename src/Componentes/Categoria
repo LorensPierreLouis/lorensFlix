@@ -1,0 +1,29 @@
+import styled from "styled-components"
+
+
+
+const Section= styled.section`
+
+
+
+`
+
+const SeccionCategoria= ()=>{
+  return (
+       <Section>
+          <h1> </h1>
+
+          <div>
+
+            
+          </div>
+       
+       
+       </Section>
+
+
+  )
+
+}
+
+ export default SeccionCategoria;

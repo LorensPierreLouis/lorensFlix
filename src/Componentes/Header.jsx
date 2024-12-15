@@ -26,6 +26,10 @@ const Header= styled.header`
 
     }
 
+    Link:hover{
+      background-color:#2271D1;
+    }
+
    
 
 
@@ -45,6 +49,7 @@ const Button= styled.button`
 
   :hover{
       color: #2271D1;
+      background-color: #2271D1;
       border-color:#2271D1;
       
   }
