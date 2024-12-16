@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import InputLabel from "./ParteFormulario"
+import Seleccion from "./categoria"
+
 
 const Formulario= styled.form`
   padding:30px 50px;
@@ -41,20 +43,7 @@ const Formulario= styled.form`
   }
 
 
-  select{
-    max-width: 50%;
-    line-height: 2rem;
-    color:#FFFF;
-    background-color:#0000;
-    border: solid 1px;
-    outline:none;
-    border-radius:5px;
-  }
 
-  input:focus, select:focus, select:hover,input:hover{
-  color: #a93630;
-  }
-  
   footer{
     display: flex;
     gap:20px;
@@ -119,15 +108,25 @@ const Descripcion= ()=>{
   )
 }
 
+
+
+
 const FormInput= ()=>{
+   //prevenir recarga//
+  const prevenirRecarga= (e)=>{
+    e.preventDefault()
+    console.log("Prevención recarga",e)
+  }
+  
    return (
-     <Formulario>
+     <Formulario onSubmit={prevenirRecarga}>
        <header>
         <h1>NUEVO VIDEO</h1>
         <p>COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO</p>
       </header> 
       <h2>Crear Tarjeta</h2>
       <InputLabel titulo="Titulo" placeholder="Ingrese el título"/>
+      <Seleccion/>
       <InputLabel titulo="Imagen" placeholder="Ingrese la imagen"/>
       <InputLabel titulo="Video" placeholder="Ingrese el video"/>
 
@@ -145,3 +144,4 @@ const FormInput= ()=>{
 }
 
 export default FormInput;
+

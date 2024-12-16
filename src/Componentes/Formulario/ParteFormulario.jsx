@@ -24,7 +24,9 @@ color: #FFFF;
 outline:none;
 padding: 5px 10px;
 width: 50%;
+box-sizing: border-box;
 }
+
 input:focus{
     color:rgba(229, 57, 53, 1);
     border: solid 1px rgba(229, 57, 53, 1);
@@ -42,3 +44,6 @@ const InputLabel= (props)=>{
 }
 
 export default InputLabel;
+
+
+

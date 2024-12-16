@@ -2,8 +2,8 @@
 import ResetGlobal from './reset'
 import styled from 'styled-components'
 import Cabecera from './Componentes/Header'
-import MainGeneral from './Componentes/Main'
-import FormInput from './Componentes/MainVideo'
+import MainGeneral from './Componentes/MainHome/MainG'
+import FormInput from './Componentes/Formulario/MainFormulario'
 import Footer from './Componentes/Footer'
 
 
