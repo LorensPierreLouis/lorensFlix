@@ -37,9 +37,15 @@ input:focus{
 
 
 const InputLabel= (props)=>{
+
+    const cambioInput= (e)=>{
+        props.actualizarDato(e.target.value)
+    }
+    
     return<Div>
-    <label  >{props.titulo}</label>
-    <input type="text" placeholder={props.placeholder}/>
+    <label> {props.titulo}</label>
+    <input type="text" placeholder={props.placeholder} required value={props.dato} onChange={cambioInput}/>
+
     </Div>
 }
 

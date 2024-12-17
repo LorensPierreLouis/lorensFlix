@@ -40,22 +40,28 @@ option{
 
 `
 
-const Seleccion= ()=>{
+const Seleccion= (props)=>{
 
     //Arreglo//
-const categorias= [
+   const categorias= [
     "FRONT END",
     "BACK END",
     "INNOVACIÓN Y GESTION"
     ]
 
+   
+        const cambioCategoria= (e)=>{
+          props.actualizarCategoria(e.target.value)
+      }
+
   return (
 
     <DivSelect>
     <label htmlFor="categoria">Categoría</label>
-    <select>
+    <select  value={props.dato} onChange={cambioCategoria}>
+       <option value="" disabled defaultValue="" hidden>Seleccionar Categoria</option>
      {categorias.map((categoria,index)=>{
-        return <option key={index}> {categoria}</option>
+        return <option key={index} value={categoria}> {categoria}</option>
      })}
     </select>
     

@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import InputLabel from "./ParteFormulario"
 import Seleccion from "./categoria"
+import { useState } from "react"
 
 
 const Formulario= styled.form`
@@ -99,11 +100,16 @@ const Div= styled.div`
   }
 `
 
-const Descripcion= ()=>{
+const Descripcion= (props)=>{
+    const cambioInput= (e)=>{
+      props.actualizarDato(e.target.value)
+  }
   return (
     <Div>
     <label htmlFor="">Descripción</label>
-    <input type="text" placeholder="Ingrese la descripción del video" />
+    <input type="text" placeholder="Ingrese la descripción del video" 
+    value={props.dato} 
+    onChange={cambioInput}/>
     </Div>
   )
 }
@@ -112,11 +118,30 @@ const Descripcion= ()=>{
 
 
 const FormInput= ()=>{
+  //para manejar los inpuut
+ const [titulo,actualizarTitulo]=useState("");
+ const [categoria,actualizarCategoria]=useState("");
+ const [imagen,actualizarImagen]=useState("");
+ const [video,actualizarVideo]=useState("");
+ const [descripcion,actualizarDescripcion]=useState("");
+
    //prevenir recarga//
   const prevenirRecarga= (e)=>{
     e.preventDefault()
-    console.log("Prevención recarga",e)
+    console.log("Prevención recarga")
+    let datos= {
+                titulo,
+                categoria,
+                imagen,
+                video,
+                descripcion
   }
+    console.log(datos);
+ }
+
+
+  
+  
   
    return (
      <Formulario onSubmit={prevenirRecarga}>
@@ -125,12 +150,32 @@ const FormInput= ()=>{
         <p>COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO</p>
       </header> 
       <h2>Crear Tarjeta</h2>
-      <InputLabel titulo="Titulo" placeholder="Ingrese el título"/>
-      <Seleccion/>
-      <InputLabel titulo="Imagen" placeholder="Ingrese la imagen"/>
-      <InputLabel titulo="Video" placeholder="Ingrese el video"/>
+      <InputLabel titulo="Titulo"
+       placeholder="Ingrese el título"
+       dato={titulo} 
+       actualizarDato={actualizarTitulo}
+       />
+      <Seleccion 
+      dato={categoria} 
+      actualizarCategoria={actualizarCategoria}
+      />
+      <InputLabel 
+      titulo="Imagen" 
+      placeholder="Ingrese la imagen"
+      dato={imagen} 
+      actualizarDato={actualizarImagen}
+      />
+      <InputLabel 
+      titulo="Video" 
+      placeholder="Ingrese el video"
+      dato={video} 
+      actualizarDato={actualizarVideo}
+      />
 
-      <Descripcion/>
+      <Descripcion
+      dato={descripcion} 
+      actualizarDato={actualizarDescripcion}
+      />
       <footer>
         <button type="submit">Guardar</button>
         <button type="reset">Limpiar</button>
