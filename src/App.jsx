@@ -10,7 +10,7 @@ import Footer from './Componentes/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Background= styled.div`
-  background: #000000;
+  background: rgba(38, 38, 38, 1);
   width: 100%;
   min-height: 100vh;
 `
