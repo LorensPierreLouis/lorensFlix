@@ -10,6 +10,8 @@ import Dialog from './Componentes/MainHome/Dialogo'
 
 
 
+
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
 
@@ -49,25 +51,32 @@ function App() {
         colorBackground:"rgba(107, 209, 255, 1)"
     },
     {
-       
+      
         titulo:"BACK END",
         colorBorde:"rgba(0, 200, 111, 1)",
         colorBackground:"rgba(0, 200, 111, 1)"
     },
     {
-       
+      
         titulo:"INNOVACIÓN Y GESTIÓN",
         colorBorde:"rgba(255, 186, 5, 1)",
         colorBackground:"rgba(255, 186, 5, 1)"
     }
-]
+   ]
   const [colaboradores, actualizarColaboradores] =useState([])
- 
+  const [PersonaSeleccionada, setPersonaSeleccionada] = useState(null)
   const AgregarPersonas=(persona)=>{
   console.log("Nueva persona",persona);
     //Spread operator
     actualizarColaboradores([...colaboradores, persona])
+  }
 
+
+  //Eliminar colaborador
+  const eliminarPersona = (id) => {
+    console.log("Eliminacion de 1 persona", id)
+    const nuevosColaboradores = colaboradores.filter((persona) => persona.id !== id)
+    actualizarColaboradores(nuevosColaboradores)
   }
 
   return (
@@ -81,13 +90,15 @@ function App() {
             <Main>
                <img src="/img/BannerMain.png" alt="Banner" />
             </Main>
-            <Editar/>
-            <Dialog/>
+            <Dialog persona={PersonaSeleccionada}
+             alCerrar={() => setPersonaSeleccionada(null)}/>
           {
             Grupo.map((categoria)=>{
                 return  <Category datos={categoria} 
                 key={categoria.titulo}
                 colaboradores={colaboradores.filter(persona=> persona.grupo === categoria.titulo)}
+                eliminarPersona={eliminarPersona}
+                alEditarFormulario={persona => setPersonaSeleccionada(persona)}
                 />
                 
             })

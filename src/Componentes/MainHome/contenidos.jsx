@@ -48,6 +48,10 @@ div{
     align-items: center;
 }
 
+.borrar:hover,.editar:hover{
+width: 32%;
+}
+
 h2,h3,p{
     color: aliceblue;
 }
@@ -55,16 +59,16 @@ h2,h3,p{
 
 
 const Contenido= (props)=>{
-    const {  titulo, imagen, video, descripcion}=props.datos
-    const {Borde}=props
+    const {  titulo, imagen, video, descripcion,grupo,id}=props.datos
+    const {Borde,eliminarPersona,persona, alEditarFormulario}=props
     const Border= {borderColor:Borde};
     return(
         <Lista>
         <h2>{titulo}</h2>
         <iframe style={Border} src={video} title={titulo} frameborder="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <footer style={Border}>
-        <div> <img src="./img/borrar.png" alt="borrar" /> <p>Borrar</p></div>
-        <div><img src="./img/editar.png" alt="cerrar" /> <p>Editar</p></div>
+        <div> <img   className="borrar"src="./img/borrar.png" alt="borrar" onClick={() => eliminarPersona(id)} /> <p>Borrar</p></div>
+        <div><img className="editar" src="./img/editar.png" alt="cerrar"  onClick={()=>alEditarFormulario(persona)}/> <p>Editar</p></div>
         </footer>
         <img  className="imagen" src={imagen} alt={titulo} />
         <p className="descripcion">{descripcion}</p>

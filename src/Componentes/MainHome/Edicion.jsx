@@ -75,10 +75,6 @@ const Editar= ()=>{
    return (
     <Section>
       <FormEditar>
-        <aside>
-            <img src="./img/cerrar.png" alt="icono-cerrar" />
-        </aside>
-        
         <header>
             <h1>EDITAR CARD:</h1>
         </header> 

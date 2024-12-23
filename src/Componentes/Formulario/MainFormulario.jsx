@@ -2,6 +2,7 @@ import styled from "styled-components"
 import InputLabel from "./ParteFormulario"
 import Seleccion from "./categoria"
 import { useState } from "react"
+import { v4 as uuid } from "uuid"
 
 
 const Formulario= styled.form`
@@ -135,7 +136,8 @@ const {AgregarPersonas}=props;
                 grupo,
                 imagen,
                 video,
-                descripcion
+                descripcion,
+                id:uuid()
   }
     AgregarPersonas(datos);
  }

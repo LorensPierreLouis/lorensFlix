@@ -37,8 +37,8 @@ ol{
 const Category= (props)=>{
 
     //destrucyuracion//
-    const {colorBackground, titulo,colorBorde,grupo}=props.datos
-    const {colaboradores}=props;
+    const {colorBackground, colorBorde,titulo,grupo,id}=props.datos
+    const {colaboradores,eliminarPersona,alEditarFormulario,persona}=props;
     
     const colorBoton= {backgroundColor:colorBackground}
    
@@ -51,6 +51,9 @@ const Category= (props)=>{
        { colaboradores.map((persona,index)=>  <Contenido 
        datos={persona}
        key={index}
+       eliminarPersona={eliminarPersona}
+       alEditarFormulario={alEditarFormulario}
+       persona={persona}
         Borde={colorBorde}/>)}
         </ol>
         
