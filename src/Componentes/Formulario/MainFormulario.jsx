@@ -117,13 +117,14 @@ const Descripcion= (props)=>{
 
 
 
-const FormInput= ()=>{
+const FormInput= (props)=>{
   //para manejar los inpuut
  const [titulo,actualizarTitulo]=useState("");
- const [categoria,actualizarCategoria]=useState("");
+ const [grupo,actualizarCategoria]=useState("");
  const [imagen,actualizarImagen]=useState("");
  const [video,actualizarVideo]=useState("");
  const [descripcion,actualizarDescripcion]=useState("");
+const {AgregarPersonas}=props;
 
    //prevenir recarga//
   const prevenirRecarga= (e)=>{
@@ -131,12 +132,12 @@ const FormInput= ()=>{
     console.log("Prevención recarga")
     let datos= {
                 titulo,
-                categoria,
+                grupo,
                 imagen,
                 video,
                 descripcion
   }
-    console.log(datos);
+    AgregarPersonas(datos);
  }
 
 
@@ -156,7 +157,7 @@ const FormInput= ()=>{
        actualizarDato={actualizarTitulo}
        />
       <Seleccion 
-      dato={categoria} 
+      dato={grupo} 
       actualizarCategoria={actualizarCategoria}
       />
       <InputLabel 
