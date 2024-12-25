@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import Seleccion from "../Formulario/categoria"
+
 
 
 const Section= styled.section`
@@ -71,7 +73,9 @@ const FormEditar= styled.form`
 
 `
 
-const Editar= ()=>{
+const Editar= (props)=>{
+
+  const {  titulo, imagen, video,grupo}=props.datos
    return (
     <Section>
       <FormEditar>
@@ -82,30 +86,27 @@ const Editar= ()=>{
         <section>
             <div>
                 <label htmlFor="titulo">Titulo</label>
-                <input type="text"  placeholder="ingrese el titulo"/>
+                <input type="text" value={titulo} />
             </div> <br />
             <div>
-                <label htmlFor="categoria">Categoria</label>
-                <select>
-                <option value="seleccion"> Seleccionar</option>
-                </select>
+              <Seleccion /> 
             </div> <br />
         </section>
         
         <section>
             <div>
                 <label htmlFor="imagen">Imagen</label>
-                <input type="text"  placeholder="el enlace es obligatorio"/>
+                <input type="text"  value={imagen}/>
             </div> <br />
             <div>
             <label htmlFor="video">Video</label>
-            <input  type="text"  placeholder="ingrese el enlace del video"/>
+            <input  type="text"  value={video}/>
             </div> <br />
         </section>
         
         <section>
             <label htmlFor="descriipcion">Descripcion del video</label>
-        <input type="text"  placeholder="¿De que se trata el video?" />
+        <input type="text"  value={descripcion}/>
 
         </section>  <br />
         

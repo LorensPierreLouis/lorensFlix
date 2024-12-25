@@ -119,7 +119,7 @@ const Descripcion= (props)=>{
 
 
 const FormInput= (props)=>{
-  //para manejar los inpuut
+  //para manejar los input
  const [titulo,actualizarTitulo]=useState("");
  const [grupo,actualizarCategoria]=useState("");
  const [imagen,actualizarImagen]=useState("");

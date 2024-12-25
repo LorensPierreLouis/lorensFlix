@@ -91,6 +91,7 @@ function App() {
                <img src="/img/BannerMain.png" alt="Banner" />
             </Main>
             <Dialog persona={PersonaSeleccionada}
+            colaboradores={colaboradores}
              alCerrar={() => setPersonaSeleccionada(null)}/>
           {
             Grupo.map((categoria)=>{

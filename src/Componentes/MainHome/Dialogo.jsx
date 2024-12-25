@@ -14,14 +14,19 @@ background-color:rgba(0,0,0,.7);
 
 
 
-const Dialog= ({persona,alCerrar})=>{
+const Dialog= ({persona,alCerrar,colaboradores})=>{
 
     return <>
     
         { persona && <>
           <Overlay/>
             <dialog open ={!!persona} onClose={alCerrar}>
-                <Editar persona={persona}/>
+                {    colaboradores.map((editar,index)=>
+                <Editar 
+                datos={editar}
+                key={index}
+                persona={persona}
+                 />)}
                 <form method="dialog">
                     <button>
                         LOrens
