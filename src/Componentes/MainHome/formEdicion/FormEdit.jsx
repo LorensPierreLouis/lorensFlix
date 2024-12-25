@@ -1,8 +1,7 @@
 import styled from "styled-components"
-import InputLabel from "./ParteFormulario"
-import Seleccion from "./categoria"
 import { useState } from "react"
-import { v4 as uuid } from "uuid"
+import InputLabelEdit from "./InputEdit"
+import SeleccionEdit from "./SeccionInput"
 
 
 const Formulario= styled.form`
@@ -10,6 +9,10 @@ const Formulario= styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding-bottom: 40px;
+  background-color: #03122F;
+  
+
   
   header{
     display: flex;
@@ -79,17 +82,14 @@ const Div= styled.div`
     text-align: left;
   }
 
-
   input{
-  font-size: 0.7rem;
-  border: none;
-  background-color:rgba(25, 25, 25, 1);
-  color: #FFFF;
-  outline:none;
-  text-align: start;
-  width: 35%;
-  padding: 10px;
-  height: 200px;
+    max-width: 100%;
+    line-height: 2rem;
+    color:#FFFF;
+    background-color:#0000;
+    border: solid 1px #6BD1FF;
+    outline:none;
+    border-radius:5px;
   }
 
   input::placeholder{
@@ -108,7 +108,7 @@ const Descripcion= (props)=>{
   return (
     <Div>
     <label htmlFor="">Descripción</label>
-    <input type="text" placeholder="Ingrese la descripción del video" 
+    <input type="text"
     value={props.dato} 
     onChange={cambioInput}/>
     </Div>
@@ -118,14 +118,16 @@ const Descripcion= (props)=>{
 
 
 
-const FormInput= (props)=>{
+const FormularioEdit= (props)=>{
+
+  const { persona,AgregarPersonas } = props;
+
   //para manejar los input
- const [titulo,actualizarTitulo]=useState("");
- const [grupo,actualizarCategoria]=useState("");
- const [imagen,actualizarImagen]=useState("");
- const [video,actualizarVideo]=useState("");
- const [descripcion,actualizarDescripcion]=useState("");
- const {AgregarPersonas}=props;
+ const [titulo,actualizarTitulo]=useState(persona.titulo);
+ const [grupo,actualizarCategoria]=useState(persona.grupo);
+ const [imagen,actualizarImagen]=useState(persona.imagen);
+ const [video,actualizarVideo]=useState(persona.video);
+ const [descripcion,actualizarDescripcion]=useState(persona.descripcion);
 
    //prevenir recarga//
   const prevenirRecarga= (e)=>{
@@ -137,12 +139,13 @@ const FormInput= (props)=>{
                 imagen,
                 video,
                 descripcion,
-                id:uuid()
+                id:persona.id
   }
     AgregarPersonas(datos);
  }
 
- //reiniciar el formulario
+
+   //reiniciar el formulario
  const reiniciarFormulario = () => {
   actualizarTitulo("")
   actualizarCategoria ("")
@@ -152,32 +155,31 @@ const FormInput= (props)=>{
 }
   
   
-  
    return (
+    
+
      <Formulario onSubmit={prevenirRecarga} onReset={prevenirRecarga}>
        <header>
-        <h1>NUEVO VIDEO</h1>
-        <p>COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO</p>
+       <h1>EDITAR CARD:</h1>
       </header> 
-      <h2>Crear Tarjeta</h2>
-      <InputLabel titulo="Titulo"
+      
+      <InputLabelEdit titulo="Titulo"
        placeholder="Ingrese el título"
        dato={titulo} 
        actualizarDato={actualizarTitulo}
        />
-      <Seleccion 
+      <SeleccionEdit
       dato={grupo} 
       actualizarCategoria={actualizarCategoria}
       />
-      <InputLabel 
+      <InputLabelEdit
       titulo="Imagen" 
-      placeholder="Ingrese la imagen"
       dato={imagen} 
       actualizarDato={actualizarImagen}
       />
-      <InputLabel 
+      <InputLabelEdit
       titulo="Video" 
-      placeholder="Ingrese el video"
+      
       dato={video} 
       actualizarDato={actualizarVideo}
       />
@@ -188,15 +190,15 @@ const FormInput= (props)=>{
       />
       <footer>
         <button type="submit">Guardar</button>
-        <button  type="reset" onClick={reiniciarFormulario}>Limpiar</button>
+        <button type="reset" onClick={reiniciarFormulario}>Limpiar</button>
       </footer>
         
 
      </Formulario>
-
+    
    )
 
 }
 
-export default FormInput;
+export default FormularioEdit;
 

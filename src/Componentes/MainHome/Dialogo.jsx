@@ -1,6 +1,9 @@
 
 import styled from "styled-components";
-import Editar from "./Edicion";
+import FormularioEdit from "./formEdicion/FormEdit";
+
+
+
 
 
 const Overlay = styled.div`
@@ -11,29 +14,41 @@ background-color:rgba(0,0,0,.7);
     right: 0;
     bottom: 0;
 `
+const Dialogo=styled.dialog`
+
+margin-top: 70%;
+ background-color: #03122F;
+ border: solid 1px #6BD1FF;
+  border-radius: 10px;
+
+  img {
+  width: 20px;
+  height: 20px;
+
+}
+`
 
 
-
-const Dialog= ({persona,alCerrar,colaboradores})=>{
+const Dialog = (props)=>{
+  const {persona,alCerrar,AgregarPersonas,editarPersona}=props;
 
     return <>
     
         { persona && <>
           <Overlay/>
-            <dialog open ={!!persona} onClose={alCerrar}>
-                {    colaboradores.map((editar,index)=>
-                <Editar 
-                datos={editar}
-                key={index}
-                persona={persona}
-                 />)}
+            <Dialogo open ={!!persona} onClose={alCerrar}>
+           
+               <FormularioEdit
+                  AgregarPersonas={AgregarPersonas}
+                 persona={persona}
+                 editarPersona={editarPersona}
+                 />
                 <form method="dialog">
-                    <button>
-                        LOrens
-                    </button>
-               
+                <button>
+                <img src="./img/cerrar.png" alt="foto" />
+                </button>
                 </form>
-            </dialog>
+            </Dialogo>
        
         </>}
         

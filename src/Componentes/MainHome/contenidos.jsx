@@ -14,14 +14,19 @@ flex-direction: column;
 iframe{
     border: solid 5px;
     border-radius: 20px 20px 0 0;
-    width: 300px;
-    height: 300px;
+    width: 429.19px;
+    height: 260.85px;
+    top: 2.58px;
+    gap: 0px;
+    opacity: 0px;
+
+    
    
 }
 
 footer{
     display: flex;
-    width: 309px;
+    width: 438.5px;
     box-sizing: border-box;
    justify-content: space-between;
    padding:10PX  40px 20px ;

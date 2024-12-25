@@ -37,8 +37,8 @@ ol{
 const Category= (props)=>{
 
     //destrucyuracion//
-    const {colorBackground, colorBorde,titulo,grupo,id}=props.datos
-    const {colaboradores,eliminarPersona,alEditarFormulario,persona}=props;
+    const {colorBackground, colorBorde,titulo}=props.datos
+    const {colaboradores,eliminarPersona,alEditarFormulario}=props;
     
     const colorBoton= {backgroundColor:colorBackground}
    

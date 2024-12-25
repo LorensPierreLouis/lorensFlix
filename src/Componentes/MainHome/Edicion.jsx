@@ -75,7 +75,7 @@ const FormEditar= styled.form`
 
 const Editar= (props)=>{
 
-  const {  titulo, imagen, video,grupo}=props.datos
+  const {  titulo, imagen, video,grupo,descripcion}=props.datos
    return (
     <Section>
       <FormEditar>
@@ -89,7 +89,7 @@ const Editar= (props)=>{
                 <input type="text" value={titulo} />
             </div> <br />
             <div>
-              <Seleccion /> 
+              <Seleccion value={grupo} /> 
             </div> <br />
         </section>
         
