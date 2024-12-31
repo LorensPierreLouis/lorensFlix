@@ -1,7 +1,7 @@
 
 import ResetGlobal from './reset'
 import styled from 'styled-components'
-import Cabecera from './Componentes/Header'
+import Cabecera from './Componentes/HeaderMin700px'
 import FormInput from './Componentes/Formulario/MainFormulario'
 import Footer from './Componentes/Footer'
 import Category from './Componentes/MainHome/Categorias'

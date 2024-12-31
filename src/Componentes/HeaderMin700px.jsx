@@ -66,7 +66,7 @@ const Button= styled.button`
 
 const Cabecera = () => {
   let computadorTablet = useMediaQuery({ query: '(min-width: 701px)' });
-  let celular = useMediaQuery({ query: '(max-width: 700px)' });
+ 
 
   const [activo, setActivo] = useState('home');
   
@@ -87,11 +87,6 @@ const Cabecera = () => {
             <Button $activo={activo === 'nuevo'}>NUEVO VIDEO</Button>
           </Link>
         </nav>}
-
-        {celular && <nav>Menu Móvil</nav>}
-
-
-
 
       </Header>
     );

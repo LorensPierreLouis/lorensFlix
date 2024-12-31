@@ -6,10 +6,6 @@ import Seleccion from "../Formulario/categoria"
 const Section= styled.section`
 display: flex;
 justify-content:center;
-width: ;
-
-
-
 
 `
 
@@ -17,7 +13,6 @@ const FormEditar= styled.form`
   padding:30px 50px;
   display: flex;
   flex-direction: column;
-  
   gap: 15px;
   width: 50%;
   padding-bottom: 40px;
@@ -25,8 +20,6 @@ const FormEditar= styled.form`
   border: solid 1px #6BD1FF;
   border-radius: 10px;
 
-
-   
   h1,label{
     color: #FFFF;
   }
@@ -57,8 +50,12 @@ const FormEditar= styled.form`
 
   footer{
     display: flex;
-    gap:50px;
-    justify-content: center;
+    gap:5px;
+   
+  }
+  .botones{
+    display: flex;
+    flex-direction: column;
   }
 
   button{
@@ -74,6 +71,11 @@ const FormEditar= styled.form`
         border-color:#6BD1FF;
         color: #6BD1FF;
         box-shadow: -1px -1px 5px 3px  rgb(90, 188, 231); 
+    }
+
+    //Tablet y laptop
+    @media(min-width:700px){
+
     }
 
 `
@@ -116,8 +118,10 @@ const Editar= (props)=>{
         </section>  <br />
         
         <footer>
-          <button type="submit">Guardar</button>
-          <button type="reset">Limpiar</button>
+         <div className="botones">
+            <button type="submit">Guardar</button>
+            <button type="reset">Limpiar</button>
+         </div>
         </footer>
           
       </FormEditar>

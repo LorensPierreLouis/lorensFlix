@@ -48,11 +48,18 @@ const Formulario= styled.form`
 
   }
 
-
-
   footer{
+    margin-top: -10px;
     display: flex;
-    gap:20px;
+    flex-direction: column;
+    
+    justify-items: center;
+  }
+  .boton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
   }
 
   button{
@@ -62,12 +69,23 @@ const Formulario= styled.form`
       border-radius: 10px;
       width: 150px;
       font-size: 0.8rem;
+      justify-items: center;
     }
 
     button:active,  button:hover{
         border-color:#2271D1;
         box-shadow: -1px -1px 5px 3px  rgba(34, 113, 209, 0.7); 
     }
+    
+    //tablet y laptop
+    @media (min-width:700px) {
+    .boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+    }
+  }
 
 `
 
@@ -152,9 +170,13 @@ const FormularioEdit= (props)=>{
       actualizarDato={actualizarDescripcion}
       />
       <footer>
-        <button type="submit">Guardar</button>
-        <button type="reset" onClick={reiniciarFormulario}>Limpiar</button>
+        <div className="boton">
+           <button type="submit">Guardar</button>
+          <button type="reset" onClick={reiniciarFormulario}>Limpiar</button>
+        </div>
       </footer>
+      
+       
         
 
      </Formulario>
