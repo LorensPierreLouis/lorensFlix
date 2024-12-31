@@ -18,10 +18,10 @@ label{
 
 Select{
     select{
-    max-width: 100%;
+    width: 100%;
     line-height: 2rem;
     color:#FFFF;
-    background-color:#0000;
+    background-color: #03122F;;
     border: solid 1px #6BD1FF;
     outline:none;
     border-radius:5px;
@@ -34,9 +34,11 @@ select:focus{
 
 option{
     font-family: Source Sans Pro;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size:0.8rem ;
+    font-weight: 500;
     line-height: 24px;
+    background-color: #03122F;
+  
 }
 
 
@@ -51,10 +53,9 @@ const SeleccionEdit= (props)=>{
     "INNOVACIÓN Y GESTION"
     ]
 
-   
-        const cambioCategoria= (e)=>{
-          props.actualizarCategoria(e.target.value)
-      }
+  const cambioCategoria= (e)=>{
+    props.actualizarCategoria(e.target.value)
+  }
 
   return (
 

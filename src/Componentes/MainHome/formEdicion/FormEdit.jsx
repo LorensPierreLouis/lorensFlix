@@ -5,12 +5,13 @@ import SeleccionEdit from "./SeccionInput"
 
 
 const Formulario= styled.form`
-  padding:30px 50px;
+  padding:5px 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding-bottom: 40px;
   background-color: #03122F;
+  height: 80vh;
   
 
   
@@ -28,7 +29,7 @@ const Formulario= styled.form`
   }
 
   h1{
-    font-size:1.8rem;
+    font-size:1.5rem;
     font-weight:600
   }
   p{
@@ -69,51 +70,12 @@ const Formulario= styled.form`
     }
 
 `
-/*descripcion*/
-const Div= styled.div`
-  margin: 7px 0;
-  label,input{
-    color:#FFFF;
-    display: block;
-    font-family: Source Sans Pro;
-    font-size:1rem ;
-    font-weight: 600;
-    line-height: 24px;
-    text-align: left;
-  }
 
-  input{
-    max-width: 100%;
-    line-height: 2rem;
-    color:#FFFF;
-    background-color:#0000;
-    border: solid 1px #6BD1FF;
-    outline:none;
-    border-radius:5px;
-  }
 
-  input::placeholder{
-  text-align: start;
-  }
-  input:focus{
-    color:rgba(229, 57, 53, 1);
-    border: solid 1px rgba(229, 57, 53, 1);
-  }
-`
 
-const Descripcion= (props)=>{
-    const cambioInput= (e)=>{
-      props.actualizarDato(e.target.value)
-  }
-  return (
-    <Div>
-    <label htmlFor="">Descripción</label>
-    <input type="text"
-    value={props.dato} 
-    onChange={cambioInput}/>
-    </Div>
-  )
-}
+
+
+
 
 
 
@@ -184,7 +146,8 @@ const FormularioEdit= (props)=>{
       actualizarDato={actualizarVideo}
       />
 
-      <Descripcion
+      <InputLabelEdit
+       titulo="Descripción" 
       dato={descripcion} 
       actualizarDato={actualizarDescripcion}
       />

@@ -6,6 +6,11 @@ import Seleccion from "../Formulario/categoria"
 const Section= styled.section`
 display: flex;
 justify-content:center;
+width: ;
+
+
+
+
 `
 
 const FormEditar= styled.form`

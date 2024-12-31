@@ -15,16 +15,23 @@ background-color:rgba(0,0,0,.7);
     bottom: 0;
 `
 const Dialogo=styled.dialog`
-
-margin-top: 70%;
+ margin-top: 70%;
  background-color: #03122F;
  border: solid 1px #6BD1FF;
   border-radius: 10px;
 
+  
+    .cerrar {
+      position: relative;
+      top:-23px;
+      left: 365px;
+    
+    }
+  
+
   img {
   width: 20px;
   height: 20px;
-
 }
 `
 
@@ -37,17 +44,17 @@ const Dialog = (props)=>{
         { persona && <>
           <Overlay/>
             <Dialogo open ={!!persona} onClose={alCerrar}>
-           
+                <form method="dialog">
+                  <button className="cerrar">
+                  <img src="./img/cerrar.png" alt="foto" />
+                  </button>
+                </form>
                <FormularioEdit
                   AgregarPersonas={AgregarPersonas}
                  persona={persona}
                  editarPersona={editarPersona}
                  />
-                <form method="dialog">
-                <button>
-                <img src="./img/cerrar.png" alt="foto" />
-                </button>
-                </form>
+                
             </Dialogo>
        
         </>}

@@ -5,7 +5,8 @@ import styled from "styled-components";
 
 const Div= styled.div`
     margin: 7px 0;
-    label,input{
+    
+    label{
         color:#FFFF;
         display: block;
         font-family: Source Sans Pro;
@@ -17,9 +18,12 @@ const Div= styled.div`
 
 
     input{
-        max-width: 100%;
+        width: 100%;
         line-height: 2rem;
         color:#FFFF;
+        font-size:0.8rem ;
+        font-weight: 500;
+        font-family: Source Sans Pro;
         background-color:#0000;
         border: solid 1px #6BD1FF;
         outline:none;
@@ -42,7 +46,7 @@ const InputLabelEdit= (props)=>{
         props.actualizarDato(e.target.value)
     }
     
-    return<Div>
+    return<Div >
     <label> {props.titulo}</label>
     <input type="text"  required value={props.dato} onChange={cambioInput}/>
 
