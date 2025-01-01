@@ -6,10 +6,11 @@ import { v4 as uuid } from "uuid"
 
 
 const Formulario= styled.form`
-  padding:30px 50px;
+  padding:30px 50px 100px 50px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  
   
   header{
     display: flex;
@@ -25,12 +26,14 @@ const Formulario= styled.form`
   }
 
   h1{
-    font-size:1.8rem;
+    font-size:1.3rem;
     font-weight:600
   }
+
   p{
-    font-size:1rem;
-    font-weight:300
+    font-size:0.7rem;
+    font-weight:300;
+    padding-top: 10px;
   }
 
    
@@ -38,7 +41,7 @@ const Formulario= styled.form`
     border-top: solid 1px ;
     border-bottom: solid 1px ;
     padding: 15px;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 500;
     text-align: left;
 
@@ -67,7 +70,18 @@ const Formulario= styled.form`
 
     /*PANTALLA GRANDE*/
     @media (min-width:700px) {
-    
+      h1{
+      font-size:1.8rem;
+      font-weight:600
+      }
+      p{
+        font-size:1rem;
+        font-weight:300
+      }
+      h2{
+   
+      font-size: 1.5rem;
+    }
   }
 
 `
@@ -92,7 +106,7 @@ const Div= styled.div`
   color: #FFFF;
   outline:none;
   text-align: start;
-  width: 35%;
+  width: 100%;
   padding: 10px;
   height: 200px;
   }
@@ -107,7 +121,9 @@ const Div= styled.div`
 
     /*PANTALLA GRANDE*/
     @media (min-width:700px) {
-      
+      input{
+        width: 35%;
+      }
     }
 `
 

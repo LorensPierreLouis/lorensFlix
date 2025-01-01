@@ -12,8 +12,8 @@ const Header= styled.header`
     justify-content: center;
     width: 100%;
     bottom: 0px;
-    background: #262626;
-   padding: 10px 0 10px 0;
+    background: rgba(25, 25, 25, 1);
+   padding: 15px 0 10px 0;
     border-bottom: solid #2271D1;
 
     nav{
