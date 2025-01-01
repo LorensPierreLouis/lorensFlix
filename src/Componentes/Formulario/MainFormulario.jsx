@@ -65,6 +65,11 @@ const Formulario= styled.form`
         box-shadow: -1px -1px 5px 3px  rgba(34, 113, 209, 0.7); 
     }
 
+    /*PANTALLA GRANDE*/
+    @media (min-width:700px) {
+    
+  }
+
 `
 /*descripcion*/
 const Div= styled.div`
@@ -99,6 +104,11 @@ const Div= styled.div`
     color:rgba(229, 57, 53, 1);
     border: solid 1px rgba(229, 57, 53, 1);
   }
+
+    /*PANTALLA GRANDE*/
+    @media (min-width:700px) {
+      
+    }
 `
 
 const Descripcion= (props)=>{

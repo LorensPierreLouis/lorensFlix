@@ -2,17 +2,15 @@
 import ResetGlobal from './reset'
 import styled from 'styled-components'
 import Cabecera from './Componentes/HeaderMin700px'
+import CabeceraCelular from './Componentes/HeaderMax700px'
 import FormInput from './Componentes/Formulario/MainFormulario'
 import Footer from './Componentes/Footer'
 import Category from './Componentes/MainHome/Categorias'
 import Dialog from './Componentes/MainHome/Dialogo'
-
-
-
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react'
+import { useMediaQuery } from 'react-responsive';
+
 
 const Background= styled.div`
   background: rgba(38, 38, 38, 1);
@@ -151,12 +149,7 @@ function App() {
    descripcion:"",
    imagen:"" 
    }
-   
-   
-  
-
-
-  
+    
  ])
 
 
@@ -182,6 +175,12 @@ function App() {
     setPersonaSeleccionada(datos)
   }
 
+  //cabecera grande pantalla
+  const mediaQueryComputador= useMediaQuery({ query: '(min-width: 701px)' });
+
+  //cabecera grande pantalla
+  const mediaQueryCelular = useMediaQuery({ query: '(max-width: 700px)' });
+
   
 
 
@@ -189,42 +188,43 @@ function App() {
 
   return (
    
-      <Router >
-       <Background>
-        <ResetGlobal/>
-        <Cabecera/>
-        <Routes>
-          <Route path='/' element={<Div> 
-            <Main>
-               <img src="/img/BannerMain.png" alt="Banner" />
-            </Main>
-          
-            <Dialog 
-            editarPersona={editarPersona}
-            persona={PersonaSeleccionada}
-            AgregarPersonas={AgregarPersonas}
-            alCerrar={() => setPersonaSeleccionada(null)}/>
-          
+    <Router >
+      <Background>
+      <ResetGlobal/>
+      {mediaQueryComputador && <Cabecera/>}
+      { mediaQueryCelular && <CabeceraCelular/>}
+      <Routes>
+        <Route path='/' element={<Div> 
+          <Main>
+              <img src="/img/BannerMain.png" alt="Banner" />
+          </Main>
+        
+          <Dialog 
+          editarPersona={editarPersona}
+          persona={PersonaSeleccionada}
+          AgregarPersonas={AgregarPersonas}
+          alCerrar={() => setPersonaSeleccionada(null)}/>
+        
 
-          {
-            Grupo.map((categoria)=>{
-                return  <Category datos={categoria} 
-                key={categoria.titulo}
-                colaboradores={colaboradores.filter(persona=> persona.grupo === categoria.titulo)}
-                eliminarPersona={eliminarPersona}
-                alEditarFormulario={persona => setPersonaSeleccionada(persona)}
-                />
-                
-            })
-           }
-            
-          </Div>}/>
-          <Route path='/form' element= {<FormInput AgregarPersonas={AgregarPersonas}/>}/>
-        </Routes>
-        <Footer/>
-        </Background>
-      </Router>
-    
+        {
+          Grupo.map((categoria)=>{
+              return  <Category datos={categoria} 
+              key={categoria.titulo}
+              colaboradores={colaboradores.filter(persona=> persona.grupo === categoria.titulo)}
+              eliminarPersona={eliminarPersona}
+              alEditarFormulario={persona => setPersonaSeleccionada(persona)}
+              />
+              
+          })
+          }
+          
+        </Div>}/>
+        <Route path='/form' element= {<FormInput AgregarPersonas={AgregarPersonas}/>}/>
+      </Routes>
+      { mediaQueryComputador && <Footer/>}
+      </Background>
+    </Router>
+  
   )  
 }
 

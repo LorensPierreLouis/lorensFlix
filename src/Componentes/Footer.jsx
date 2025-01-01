@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const PiePagina=styled.footer`
 background-color: rgba(0, 0, 0, 0.9);
 border-top: solid 1px rgba(34, 113, 209, 1);
@@ -14,5 +15,8 @@ img{
 }
 `
 
-const Footer=()=> <PiePagina> <img src="img/logo.png" alt="logo de la Alura" /></PiePagina>;
-export default Footer;
+const Footer=()=> {
+
+    return  <PiePagina> <img src="img/logo.png" alt="logo de la Alura" /></PiePagina>;
+}
+export default Footer

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom"
 import { useState, React } from "react";
-import { useMediaQuery } from 'react-responsive';
+
 
 
 const Header= styled.header`
@@ -65,7 +65,7 @@ const Button= styled.button`
 
 
 const Cabecera = () => {
-  let computadorTablet = useMediaQuery({ query: '(min-width: 701px)' });
+ 
  
 
   const [activo, setActivo] = useState('home');
@@ -76,17 +76,15 @@ const Cabecera = () => {
   
     return (
       <Header>
-        <img src="img/logo.png" alt="logo de la Alura" />
-        
-      
-       {computadorTablet &&  <nav>
+     <img src="img/logo.png" alt="logo de la Alura" />
+      <nav>
           <Link to="/" onClick={() => handleClick('home')}>
             <Button $activo={activo === 'home'}>HOME</Button>
           </Link>
           <Link to="/form" onClick={() => handleClick('nuevo')}>
             <Button $activo={activo === 'nuevo'}>NUEVO VIDEO</Button>
           </Link>
-        </nav>}
+        </nav>
 
       </Header>
     );
